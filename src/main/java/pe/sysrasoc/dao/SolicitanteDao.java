@@ -9,7 +9,8 @@ public interface SolicitanteDao {
 	int create (Solicitante s);
 	int update (Solicitante s);
 	int delete (int id);
-	Solicitante read(int id);
-	List<Map<String, Object>> readAll();
+	Map<String, Object> read(int id);
+	Map<String, Object> readAll();
+	void convertitMap(Map<String, Object> map);
 
 }

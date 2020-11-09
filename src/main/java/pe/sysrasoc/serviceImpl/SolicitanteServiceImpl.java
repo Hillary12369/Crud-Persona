@@ -30,17 +30,17 @@ public class SolicitanteServiceImpl implements SolicitanteService{
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		return solicitantedao.delete(id);
 	}
 
 	@Override
-	public Solicitante read(int id) {
+	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return solicitantedao.read(id);
 	}
 
 	@Override
-	public List<Map<String, Object>> readAll() {
+	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
 		return solicitantedao.readAll();
 	}

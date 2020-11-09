@@ -1,6 +1,5 @@
 package pe.sysrasoc.serviceImpl;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,13 +33,13 @@ public class PersonaServiceImpl implements PersonaService{
 	}
 
 	@Override
-	public Persona read(int id) {
+	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
 		return personadao.read(id);
 	}
 
 	@Override
-	public List<Map<String, Object>> readAll() {
+	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
 		return personadao.readAll();
 	}

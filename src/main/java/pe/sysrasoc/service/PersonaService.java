@@ -10,7 +10,7 @@ public interface PersonaService {
 	int create (Persona p);
 	int update (Persona p);
 	int delete (int id);
-	Persona read (int id);
-	List<Map<String, Object>> readAll();
+	Map<String, Object> read(int id);
+	Map<String, Object> readAll();
 
 }
