@@ -23,6 +23,7 @@ public class PersonaServiceImpl implements PersonaService{
 	@Override
 	public int update(Persona p) {
 		// TODO Auto-generated method stub
+		System.out.println("Service: " + p.getNombre_persona() + p.getApell_pat() + p.getApell_mat() + p.getDni() + p.getCorreo() + p.getTelefono() + p.getFecha_nac() + p.getSexo());
 		return personadao.update(p);
 	}
 

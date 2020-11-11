@@ -48,20 +48,11 @@ public class PersonaController {
 	}
 	//PutMappin permite modificar persona
 	@PutMapping("/update/{id}")
-	public String edit(@RequestBody Persona p, @PathVariable int id) {
+	public int edit(@RequestBody Persona p, @PathVariable int id) {
 		//Map<String, Object> map = personaService.read(id);
-		//System.out.println(map);
-		Persona persona = new Persona();
-		persona.setId_persona(id);
-		persona.setApell_pat(p.getApell_pat());
-		persona.setApell_mat(p.getApell_mat());
-		persona.setDni(p.getDni());
-		persona.setCorreo(p.getCorreo());
-		persona.setTelefono(p.getTelefono());
-		persona.setFecha_nac(p.getFecha_nac());
-		persona.setSexo(p.getSexo());
-		personaService.update(p);
-		return "hola";
+		System.out.println(p.getNombre_persona());
+		p.setId_persona(id);
+		return personaService.update(p);
 	}
-	
+
 }

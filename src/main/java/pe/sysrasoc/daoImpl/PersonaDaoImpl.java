@@ -1,7 +1,6 @@
 package pe.sysrasoc.daoImpl;
 
 import java.sql.Types;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -31,16 +30,16 @@ public class PersonaDaoImpl implements PersonaDao {
 	public int create(Persona p) {
 		// TODO Auto-generated method stub
 		System.out.println(p.getNombre_persona());
-		String sql="call pk_persona.sp_create_persona(?,?,?,?,?,?,?,?)";
+		String sql="declare v_per persona%rowtype; begin v_per.nombre_persona:=?; v_per.apell_pat:=?; v_per.apell_mat:=?; v_per.dni:=?; v_per.correo:=?; v_per.telefono:=?; v_per.fecha_nac:=?; v_per.sexo:=?; pk_persona.sp_ins_persona(v_per); end;";
 		return jdbcTemplate.update(sql,p.getNombre_persona(),p.getApell_pat(),p.getApell_mat(),p.getDni(),p.getCorreo(),p.getTelefono(),p.getFecha_nac(),p.getSexo());
 	}
 
 	@Override
 	public int update(Persona p) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pk_persona.sp_update_persona(?,?,?,?,?,?,?,?,?)", p.getId_persona(),
-				p.getNombre_persona(), p.getApell_pat(), p.getApell_mat(), p.getDni(), p.getCorreo(), p.getTelefono(),
-				p.getFecha_nac(), p.getSexo());
+		System.out.println(p.getNombre_persona());
+		String sql="declare v_per persona%rowtype; begin v_per.id_persona:=?; v_per.nombre_persona:=?; v_per.apell_pat:=?; v_per.apell_mat:=?; v_per.dni:=?; v_per.correo:=?;v_per.telefono:=?; v_per.fecha_nac:=?; v_per.sexo:=?; pk_persona.sp_upd_persona(v_per); end;";
+		return jdbcTemplate.update(sql, p.getId_persona(),p.getNombre_persona(), p.getApell_pat(), p.getApell_mat(), p.getDni(), p.getCorreo(), p.getTelefono(),p.getFecha_nac(), p.getSexo());
 	}
 
 	@Override
